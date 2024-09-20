@@ -135,6 +135,36 @@ header#home p {
   font-size: 16px;
   color: #555;
 }
+/* Features List Styles */
+.features-list {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.features-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.features-list li {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.features-list li:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.features-list li::before {
+  content: "✓";
+  color: #66a6ff;
+  margin-right: 10px;
+}
 
 /* Glassmorphism Effect */
 .glass-effect {
