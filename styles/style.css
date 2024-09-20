@@ -82,7 +82,7 @@ nav .nav-links li a:hover {
   nav .nav-links {
     position: fixed;
     top: 70px;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: calc(100% - 70px);
     background-color: rgba(255, 255, 255, 0.95);
@@ -90,7 +90,8 @@ nav .nav-links li a:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: left 0.3s ease;
+    transform: translateX(-100%); /* Move off-screen */
+    transition: transform 0.3s ease;
   }
 
   nav .nav-links li {
@@ -98,7 +99,12 @@ nav .nav-links li a:hover {
   }
 
   #menu-toggle:checked + .hamburger-menu + .nav-links {
-    left: 0;
+    transform: translateX(0); /* Slide in on menu toggle */
+  }
+
+  /* Hide the default navigation links */
+  nav .nav-links {
+    display: flex;
   }
 }
 
@@ -190,7 +196,7 @@ header#home p {
   margin-bottom: 10px;
   border-radius: 10px;
   font-size: 18px;
-  color: #000; /* Set text color to black for visibility */
+  color: #000;
 }
 
 .features-list li:hover {
