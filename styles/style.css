@@ -54,6 +54,7 @@ nav .logo {
   border-radius: 3px;
 }
 
+/* Navigation Links */
 nav .nav-links {
   list-style: none;
   display: flex;
@@ -91,7 +92,9 @@ nav .nav-links li a:hover {
     align-items: center;
     justify-content: center;
     transform: translateX(-100%); /* Move off-screen */
-    transition: transform 0.3s ease;
+    opacity: 0; /* Initially invisible */
+    visibility: hidden; /* Ensure it's not clickable */
+    transition: transform 0.3s ease, opacity 0.3s ease;
   }
 
   nav .nav-links li {
@@ -99,12 +102,9 @@ nav .nav-links li a:hover {
   }
 
   #menu-toggle:checked + .hamburger-menu + .nav-links {
-    transform: translateX(0); /* Slide in on menu toggle */
-  }
-
-  /* Hide the default navigation links */
-  nav .nav-links {
-    display: flex;
+    transform: translateX(0); /* Slide in */
+    opacity: 1; /* Fade in */
+    visibility: visible; /* Make clickable */
   }
 }
 
@@ -176,6 +176,12 @@ header#home p {
   height: 450px;
   border: none;
   border-radius: 15px;
+  transition: opacity 0.5s ease; /* Smooth fade-in */
+  opacity: 0; /* Initially invisible */
+}
+
+.video-container[data-aos="fade-up"] iframe {
+  opacity: 1; /* Visible when AOS triggers */
 }
 
 /* Features List Styles */
@@ -196,7 +202,8 @@ header#home p {
   margin-bottom: 10px;
   border-radius: 10px;
   font-size: 18px;
-  color: #000;
+  color: #000; /* Set text color to black for visibility */
+  position: relative;
 }
 
 .features-list li:hover {
@@ -207,6 +214,8 @@ header#home p {
   content: "✓";
   color: #66a6ff;
   margin-right: 10px;
+  position: absolute;
+  left: 15px;
 }
 
 /* Glassmorphism Effect */
@@ -255,6 +264,10 @@ footer p {
 }
 
 /* Responsive Design */
+@media (max-width: 768px) {
+  /* Hamburger Menu visible on smaller screens */
+}
+
 @media (max-width: 480px) {
   header#home h1 {
     font-size: 36px;
